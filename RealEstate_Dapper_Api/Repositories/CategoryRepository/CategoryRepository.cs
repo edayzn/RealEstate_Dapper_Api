@@ -50,7 +50,7 @@ namespace RealEstate_Dapper_Api.Repositories.CategoryRepository
 
         public async Task<GetByIDCategoryDto> GetCategory(int id)
         {
-            string query = "Select * From Caregory where CategoryID=@CategoryID";
+            string query = "Select * From Category where CategoryID=@CategoryID";
             var parameters = new DynamicParameters();
             parameters.Add("@CategoryID",id);
             using(var connections=_context.CreateConnection())
