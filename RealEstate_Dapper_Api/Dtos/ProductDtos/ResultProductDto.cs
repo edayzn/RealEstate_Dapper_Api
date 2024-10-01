@@ -9,5 +9,6 @@
         public string District { get; set; }
         public int  ProductCategory { get; set; }
 
+
     }
 }
