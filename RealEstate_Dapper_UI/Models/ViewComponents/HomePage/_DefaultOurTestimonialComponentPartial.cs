@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using RealEstate_Dapper_UI.Dtos.PopularLocationDtos;
+using RealEstate_Dapper_UI.Dtos.TestimonialDtos;
 
 namespace RealEstate_Dapper_UI.Models.ViewComponents.HomePage
 {
-    public class _DefaultProductListExploreCtiesComponentPartial:ViewComponent
+    public class _DefaultOurTestimonialComponentPartial:ViewComponent  
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public _DefaultProductListExploreCtiesComponentPartial(IHttpClientFactory httpClientFactory)
+        public _DefaultOurTestimonialComponentPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
@@ -17,18 +17,16 @@ namespace RealEstate_Dapper_UI.Models.ViewComponents.HomePage
         {
 
             var client = _httpClientFactory.CreateClient();
-            var responseMassage = await client.GetAsync("https://localhost:44305/api/PopularLocations");
+            var responseMassage = await client.GetAsync("https://localhost:44305/api/Testimonials");
 
 
             if (responseMassage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMassage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultPopularLocationDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultTestimonialDto>>(jsonData);
                 return View(values);
             }
             return View();
         }
     }
-
 }
-
