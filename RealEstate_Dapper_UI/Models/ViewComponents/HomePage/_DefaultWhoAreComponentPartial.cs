@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using RealEstate_Dapper_UI.Dtos.ServiceDtos;
 using RealEstate_Dapper_UI.Dtos.WhoWeAreDtos;
-using ResultServiceDto = RealEstate_Dapper_UI.Dtos.WhoWeAreDtos.ResultServiceDto;
+using ResultServiceDto = RealEstate_Dapper_UI.Dtos.ServiceDtos.ResultServiceDto;
 
 namespace RealEstate_Dapper_UI.Models.ViewComponents.HomePage
 {
