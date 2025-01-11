@@ -4,5 +4,7 @@
     {
         public int CityCount { get; set; }
         public string City { get; set; }
+
+
     }
 }

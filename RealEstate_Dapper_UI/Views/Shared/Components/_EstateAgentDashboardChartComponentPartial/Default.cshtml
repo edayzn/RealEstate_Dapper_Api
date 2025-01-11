@@ -2,26 +2,26 @@
 
 <!DOCTYPE html>
 <html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-<body>
-
-    <canvas id="myChart" style="width:100%;max-width:500px"></canvas>
-
-    @{
-
-        var xValues = new List<string>();
-        var yValues = new List<int>();
-
-        foreach (var item in Model)
-        {
-            xValues.Add(item.City);
-            yValues.Add(item.CityCount);
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <style>
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px; /* Added for spacing */
         }
-
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <canvas id="myChart" style="max-width: 500px"></canvas>
+        <canvas id="myChart1" style="max-width: 500px"></canvas>
+    </div>
+   
         <script>
-            const xValues = @Html.Raw(Json.Serialize(xValues));
-            const yValues = @Html.Raw(Json.Serialize(yValues));
-            const barColors = ["rgb(106, 212, 221)", "rgb(127, 199, 217)", "rgb(54, 84, 134)", "rgb(134, 182, 246)", "rgb(0, 141, 218)"];
+            var xValues = @Html.Raw(Json.Serialize(Model.Select(item=>item.City)));
+            var yValues = @Html.Raw(Json.Serialize(Model.Select(item => item.CityCount)));
+            var barColors = ["rgb(106, 212, 221)", "rgb(127, 199, 217)", "rgb(54, 84, 134)", "rgb(134, 182, 246)", "rgb(0, 141, 218)"];
 
             new Chart("myChart", {
                 type: "bar",
@@ -43,9 +43,33 @@
                     }
                 }
             });
-        </script>
-    }
 
+                var xValues1 = @Html.Raw(Json.Serialize(Model.Select(item => item.City)));
+                var yValues1 = @Html.Raw(Json.Serialize(Model.Select(item => item.CityCount)));
+        var barColors1 = ["#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#e8c3b9",
+            "#1e7145"];
+
+        new Chart("myChart1", {
+            type: "pie",
+            data: {
+                labels: xValues1,
+                datasets: [{
+                    backgroundColor: barColors1,
+                    data: yValues1
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "Şehir İlan Dağılımı"
+                }
+            }
+        });
+        </script>
+    
 
 </body>
 </html>
