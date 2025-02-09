@@ -1,0 +1,96 @@
+﻿@model GetAppUserByProductIdDto
+
+<div class="sidebar-side col-lg-4 col-md-12 col-sm-12 mt-lg-0 mt-5">
+    <aside class="sidebar">
+
+        <!-- Popular Post Widget-->
+        <div class="sidebar-widget popular-posts">
+            <div class="sidebar-title">
+                <h4>Emlakçı İletişim Bilgileri</h4>
+            </div>
+
+            <article class="post">
+                <figure class="post-thumb">
+                    <img src="@Model.UserImageUrl" style="width:100px;height:100px;" class="radius-image" alt="">
+                </figure>
+                <div class="text mb-0">
+                    <a href="#blog-single">
+                        @Model.Name
+                    </a>
+                    <div class="post-info">@Model.PhoneNumber</div>
+                    <div class="post-info">@Model.Email</div>
+                </div>
+            </article>
+
+            <button type="submit" class="btn btn-primary btn-style w-100" data-toggle="modal" data-target="#Modal1">Detaylı İletişim Bilgileri</button>
+            <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title fs-5" id="modalLabel" >Detaylı İletişim Bilgileri</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                   
+                            <div class="modal-body">
+                                <p><label >Ad-Soyad : @Model.Name</label></p>
+                                <p> <label>Telefon Numarası : @Model.PhoneNumber</label></p>
+                                <p><label>Mail Adresi : @Model.Email</label></p>
+                            </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Popular Post Widget-->
+        <div class="sidebar-widget popular-posts">
+            <div class="sidebar-title">
+                <h4>Emlakçıya Ait Diğer İlanlar</h4>
+            </div>
+
+            <article class="post">
+                <figure class="post-thumb">
+                    <img src="~/starter/assets/images/l1.jpg" class="radius-image" alt="">
+                </figure>
+                <div class="text">
+                    <a href="#blog-single">
+                        Why we are the best in the business
+                    </a>
+                    <div class="post-info">Sep 09, 2020 - 2 comments</div>
+                </div>
+            </article>
+
+            <article class="post">
+                <figure class="post-thumb">
+                    <img src="~/starter/assets/images/l2.jpg" class="radius-image" alt="">
+                </figure>
+                <div class="text">
+                    <a href="#blog-single">
+                        Build your next landing page.
+                    </a>
+                    <div class="post-info">Sep 09, 2020 - 2 comments</div>
+                </div>
+            </article>
+
+            <article class="post">
+                <figure class="post-thumb">
+                    <img src="~/starter/assets/images/l3.jpg" class="radius-image" alt="">
+                </figure>
+                <div class="text">
+                    <a href="#blog-single">
+                        Simply the best. Better than the rest.
+                    </a>
+                    <div class="post-info">Sep 10, 2020 - 2 comments</div>
+                </div>
+            </article>
+
+        </div>
+
+    </aside>
+</div>
+
