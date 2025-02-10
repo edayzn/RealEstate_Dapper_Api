@@ -56,14 +56,14 @@ namespace RealEstate_Dapper_UI.Controllers
             ViewBag.datediff =(((DateTime.Now.Month)-(values.advertisementDate.Month)) +12*( (DateTime.Now.Year)- (values.advertisementDate.Year)));
 
             
-            ViewBag.bathCount = values2.bathCount;
-            ViewBag.bedRoomCount= values2.bedRoomCount;
-            ViewBag.size = values2.productSize;
-            ViewBag.roomCount=values2.roomCount;
-            ViewBag.garageCount=values2.garageSize;
-            ViewBag.buildYear=values2.buildYear;
-            ViewBag.location=values2.location;
-            ViewBag.videoUrl=values2.videoUrl;
+            ViewBag.bathCount = values2.BathCount;
+            ViewBag.bedRoomCount= values2.BedRoomCount;
+            ViewBag.size = values2.ProductSize;
+            ViewBag.roomCount=values2.RoomCount;
+            ViewBag.garageCount=values2.GarageSize;
+            ViewBag.buildYear=values2.BuildYear;
+            ViewBag.location=values2.Location;
+            ViewBag.videoUrl=values2.VideoUrl;
             return View(values);
             
          

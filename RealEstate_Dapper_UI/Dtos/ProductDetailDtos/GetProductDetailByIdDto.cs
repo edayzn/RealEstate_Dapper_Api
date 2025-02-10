@@ -3,18 +3,18 @@
     public class GetProductDetailByIdDto
     {
       
-            public int productDetailId { get; set; }
-            public int bedRoomCount { get; set; }
-            public int productSize { get; set; }
-            public int bathCount { get; set; }
-            public int roomCount { get; set; }
-            public int garageSize { get; set; }
-            public string buildYear { get; set; }
-            public decimal price { get; set; }
-            public string location { get; set; }
+            public int ProductDetailId { get; set; }
+            public int BedRoomCount { get; set; }
+            public int ProductSize { get; set; }
+            public int BathCount { get; set; }
+            public int RoomCount { get; set; }
+            public int GarageSize { get; set; }
+            public string BuildYear { get; set; }
+            public decimal Price { get; set; }
+            public string Location { get; set; }
           
-            public string videoUrl { get; set; }
-            public int productId { get; set; }
+            public string VideoUrl { get; set; }
+            public int ProductId { get; set; }
             public DateTime advertisementDate { get; set; }
         
 
