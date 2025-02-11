@@ -17,7 +17,7 @@ namespace RealEstate_Dapper_UI.Models.ViewComponents.HomePage
         {
             //n istemci örneği
             var client=_httpClientFactory.CreateClient();
-            var responseMassage = await client.GetAsync("https://localhost:44305/api/Products/ProductListWithCategory");
+            var responseMassage = await client.GetAsync("https://localhost:44305/api/Products/GetProductByDealOfTheDayTrueWithCategory");
   
 
             if(responseMassage.IsSuccessStatusCode)

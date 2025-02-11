@@ -31,13 +31,13 @@ namespace RealEstate_Dapper_Api.Controllers
         [HttpGet("ProductDealOfTheDayStatusChangeToTrue/{id}")]
         public async Task<IActionResult> ProductDealOfTheDayStatusChangeToTrue(int id)
         {
-            _productRepository.ProductDealOfTheDayStatusChangeToTrue(id);
+         await _productRepository.ProductDealOfTheDayStatusChangeToTrue(id);
             return Ok("İlan Günün Fırsatlarına Eklendi.");
         }
         [HttpGet("ProductDealOfTheDayStatusChangeToFalse/{id}")]
         public async Task<IActionResult> ProductDealOfTheDayStatusChangeToFalse(int id)
         {
-            _productRepository.ProductDealOfTheDayStatusChangeToFalse(id);
+          await _productRepository.ProductDealOfTheDayStatusChangeToFalse(id);
             return Ok("İlan Günün Fırsatlarından Çıkarıldı.");
         }
         [HttpGet("LastProductFiveList")]
@@ -75,6 +75,13 @@ namespace RealEstate_Dapper_Api.Controllers
         public async Task<IActionResult> ResultProductWithSearchListDto(string searchKeyValue, int propertyCategoryId, string city)
         {
             var values = await _productRepository.ResultProductWithSearchListDto(searchKeyValue,propertyCategoryId,city);
+            return Ok(values);
+        }
+
+        [HttpGet("GetProductByDealOfTheDayTrueWithCategory")]
+        public async Task<IActionResult> GetProductByDealOfTheDayTrueWithCategory()
+        {
+            var values = await _productRepository.GetProductByDealOfTheDayTrueWithCategoryAsync();
             return Ok(values);
         }
     }
