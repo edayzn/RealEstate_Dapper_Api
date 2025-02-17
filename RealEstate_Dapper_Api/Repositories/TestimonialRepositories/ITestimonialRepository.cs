@@ -5,6 +5,6 @@ namespace RealEstate_Dapper_Api.Repositories.TestimonialRepositories
 {
     public interface ITestimonialRepository
     {
-        Task<List<ResultTestimonialDto>> GetAllTestimoniaAsync();
+        Task<List<ResultTestimonialDto>> GetAllTestimonia();
     }
 }

@@ -14,7 +14,7 @@ namespace RealEstate_Dapper_Api.Repositories.SubFeatureRepositories
             _context = context;
         }
 
-        public async Task<List<ResultSubFeatureDto>> GetAllSubFeatureAsync()
+        public async Task<List<ResultSubFeatureDto>> GetAllSubFeature()
         {
             string query = " Select * From SubFeature";
             using (var conncetion = _context.CreateConnection())

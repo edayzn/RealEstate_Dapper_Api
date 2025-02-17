@@ -2,9 +2,13 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Configuration;
 using RealEstate_Dapper_UI.Services;
 using System.IdentityModel.Tokens.Jwt;
+using RealEstate_Dapper_UI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
+
+builder.Services.Configure<ApiSettings>(builder.Configuration.GetSection("ApiSettingsKey"));
+
 
 // Add services to the container.
 builder.Services.AddHttpClient();
