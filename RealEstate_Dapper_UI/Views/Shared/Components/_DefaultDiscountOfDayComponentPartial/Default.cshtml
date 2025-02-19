@@ -1,4 +1,5 @@
 ﻿@model List<ResultLastThreeProductWithCategoryDto>
+
 <div class="w3l-news" id="news">
     <section id="grids5-block" class="py-5">
         <div class="container py-lg-5 py-md-4 py-2">
@@ -8,6 +9,7 @@
                 {
                     <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-4">
                     <div class="grids5-info">
+
                         <span class="posted-date">
                             <a href="#blog-single">
                                 <span class="small">@item.AdvertisementDate.ToString("yyyy")</span>
@@ -15,7 +17,7 @@
                                     <span class="small">@item.AdvertisementDate.ToString("MMMM")</span>
                             </a>
                         </span>
-                        <a href="#blog-single" class="d-block zoom">
+                            <a href="@Url.Action("PropertySingle", "Property", new { slug = item.SlugUrl, id = item.ProductID })" class="d-block zoom">
                             <img src="@item.CoverImage" style="height:250px" alt=""
                                  class="img-fluid news-image" />
                         </a>

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RealEstate_Dapper_UI.Dtos.BottomGridDtos;
+using RealEstate_Dapper_UI.Models;
 using System.Text;
 
 namespace RealEstate_Dapper_UI.Controllers
@@ -8,17 +10,20 @@ namespace RealEstate_Dapper_UI.Controllers
     public class BottomGridController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
-
-        public BottomGridController(IHttpClientFactory httpClientFactory)
+        private readonly ApiSettings _apiSettings;
+        public BottomGridController(IHttpClientFactory httpClientFactory, IOptions<ApiSettings> apiSettings)
         {
             _httpClientFactory = httpClientFactory;
+            _apiSettings = apiSettings.Value;
         }
 
         public async Task<IActionResult> Index()
         {
 
             var client = _httpClientFactory.CreateClient();
-            var responseMassage = await client.GetAsync("https://localhost:44305/api/BottomGrids");
+            client.BaseAddress = new Uri(_apiSettings.BaseUrl);
+            var responseMassage = await client.GetAsync("BottomGrids");
+            
 
 
             if (responseMassage.IsSuccessStatusCode)

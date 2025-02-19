@@ -11,6 +11,8 @@
         public string Description { get; set; }
         public int ProductCategory { get; set; }
         public string CategoryName { get; set; }
+        public string SlugUrl { get; set; }
         public DateTime AdvertisementDate { get; set; }
+
     }
 }

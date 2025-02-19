@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RealEstate_Dapper_UI.Dtos.ServiceDtos;
 using RealEstate_Dapper_UI.Dtos.WhoWeAreDtos;
@@ -9,19 +10,21 @@ namespace RealEstate_Dapper_UI.Models.ViewComponents.HomePage
     public class _DefaultWhoAreComponentPartial:ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
-
-        public _DefaultWhoAreComponentPartial(IHttpClientFactory httpClientFactory)
+        private readonly ApiSettings _apiSettings;
+        public _DefaultWhoAreComponentPartial(IHttpClientFactory httpClientFactory, IOptions<ApiSettings> apiSettings)
         {
             _httpClientFactory = httpClientFactory;
+            _apiSettings = apiSettings.Value;
         }
 
         public async Task< IViewComponentResult> InvokeAsync()
         { 
             var client=_httpClientFactory.CreateClient();
-            var client2=_httpClientFactory.CreateClient();
+            client.BaseAddress=new Uri(_apiSettings.BaseUrl);
+            //var client2=_httpClientFactory.CreateClient();
 
-            var responseMessage = await client.GetAsync("https://localhost:44305/api/WhoWeAreDetail");
-            var responseMessage2 = await client2.GetAsync("https://localhost:44305/api/Services");
+            var responseMessage = await client.GetAsync("WhoWeAreDetail");
+            var responseMessage2 = await client.GetAsync("Services");
 
             if(responseMessage.IsSuccessStatusCode && responseMessage2.IsSuccessStatusCode)
             {

@@ -12,8 +12,8 @@
             public string BuildYear { get; set; }
             public decimal Price { get; set; }
             public string Location { get; set; }
-          
-            public string VideoUrl { get; set; }
+        public string SlugUrl { get; set; }
+        public string VideoUrl { get; set; }
             public int ProductId { get; set; }
             public DateTime advertisementDate { get; set; }
         

@@ -51,7 +51,7 @@
             <div class="col-lg-8 w3l-news">
                 <div class="blog-single-post">
 
-                    @await Component.InvokeAsync("_PropertySliderComponentPartial")
+                    @await Component.InvokeAsync("_PropertySliderComponentPartial",new {id=ViewBag.i})
                   
 
                     <div class="single-post-content">
@@ -63,7 +63,7 @@
                         <div class="single-bg-white">
                             <h3 class="post-content-title mb-4">İlan Detayları</h3>
                             <ul class="details-list">
-                                <li><strong>İlan Id :</strong> @ViewBag.produtcId </li>
+                                <li><strong>İlan Id :</strong> @ViewBag.productIdToPtoductDetail </li>
                                 <li><strong>Metrekate :</strong> @ViewBag.size </li>
                                 <li><strong>Oda Sayısı :</strong> @ViewBag.roomCount </li>
                                 <li><strong>Yatak Odası :</strong> @ViewBag.bedRoomCount </li>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RealEstate_Dapper_UI.Dtos.EstateAgentDtos;
 using RealEstate_Dapper_UI.Dtos.ProductDtos;
@@ -10,17 +11,20 @@ namespace RealEstate_Dapper_UI.Models.ViewComponents.EstateAgent
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILoginService _loginService;
-        public _EstateAgentLastFiveProductComponentPartial(IHttpClientFactory httpClientFactory, ILoginService loginService)
+        private readonly ApiSettings _apiSettings;
+        public _EstateAgentLastFiveProductComponentPartial(IHttpClientFactory httpClientFactory, ILoginService loginService, IOptions<ApiSettings> apiSettings)
         {
             _httpClientFactory = httpClientFactory;
             _loginService = loginService;
+            _apiSettings = apiSettings.Value;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var id = _loginService.GetUserId;
             var client = _httpClientFactory.CreateClient();
-            var responseMassage = await client.GetAsync("https://localhost:44305/api/EstateAgentLastProducts?id="+id);
+            client.BaseAddress=new Uri(_apiSettings.BaseUrl);
+            var responseMassage = await client.GetAsync("EstateAgentLastProducts?id="+id);
 
 
             if (responseMassage.IsSuccessStatusCode)

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RealEstate_Dapper_UI.Dtos.ProductDtos;
 
@@ -7,17 +8,20 @@ namespace RealEstate_Dapper_UI.Models.ViewComponents.HomePage
     public class _DefaultHomePageRroductList:ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly ApiSettings _apiSettings;
 
-        public _DefaultHomePageRroductList(IHttpClientFactory httpClientFactory)
+        public _DefaultHomePageRroductList(IHttpClientFactory httpClientFactory, IOptions<ApiSettings> apiSettings)
         {
             _httpClientFactory = httpClientFactory;
+            _apiSettings = apiSettings.Value;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
             //n istemci örneği
             var client=_httpClientFactory.CreateClient();
-            var responseMassage = await client.GetAsync("https://localhost:44305/api/Products/GetProductByDealOfTheDayTrueWithCategory");
+            client.BaseAddress=new Uri(_apiSettings.BaseUrl);
+            var responseMassage = await client.GetAsync("Products/GetProductByDealOfTheDayTrueWithCategory");
   
 
             if(responseMassage.IsSuccessStatusCode)

@@ -90,6 +90,12 @@ namespace RealEstate_Dapper_Api.Controllers
             var values = await _productRepository.GetLastThreeProductAsync();
             return Ok(values);
         }
+        [HttpGet("GetProductIdByAppUser")]
+        public async Task<IActionResult> GetProductIdByAppUser(int id)
+        {
+            var values = await _productRepository.GetProductIdByAppUser(id);
+            return Ok(values);
+        }
     }
 
 }

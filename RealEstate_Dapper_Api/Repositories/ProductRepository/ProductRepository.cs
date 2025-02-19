@@ -52,7 +52,7 @@ namespace RealEstate_Dapper_Api.Repositories.ProductRepository
 
         public async Task<List<ResultProductWithCategoryDto>> GetAllProductWithCategoryAsync()
         {
-            string query = " Select ProductID,Title,Price,City,District,CategoryName,CoverImage,Type,Address,DealOfTheDay From Product inner join Category on Product.ProductCategory=Category.CategoryID";
+            string query = " Select ProductID,Title,Price,City,District,CategoryName,CoverImage,Type,Address,DealOfTheDay,SlugUrl From Product inner join Category on Product.ProductCategory=Category.CategoryID";
             using (var conncetion = _context.CreateConnection())
             {
                 var values = await conncetion.QueryAsync<ResultProductWithCategoryDto>(query);
@@ -74,7 +74,7 @@ namespace RealEstate_Dapper_Api.Repositories.ProductRepository
 
         public async Task<List<ResultLastThreeProductWithCategoryDto>> GetLastThreeProductAsync()
         {
-            string query = "Select Top(3) ProductID,Title,Price,City,District,CoverImage,Description,ProductCategory,CategoryName,AdvertisementDate  From Product inner Join Category On Product.ProductCategory=Category.CategoryID Order By ProductID Desc";
+            string query = "Select Top(3) ProductID,Title,Price,City,District,CoverImage,Description,ProductCategory,CategoryName,AdvertisementDate,SlugUrl  From Product inner Join Category On Product.ProductCategory=Category.CategoryID Order By ProductID Desc";
             using (var conncetion = _context.CreateConnection())
             {
 
@@ -120,7 +120,7 @@ namespace RealEstate_Dapper_Api.Repositories.ProductRepository
 
         public async Task<GetProductByProductIdDto> GetProductByProductId(int id)
         {
-            string query = " Select ProductID,Title,Price,City,District,Description,CategoryName,CoverImage,Type,Address,DealOfTheDay,AdvertisementDate From Product inner join Category on Product.ProductCategory=Category.CategoryID Where ProductID=@productId";
+            string query = " Select ProductID,Title,Price,City,District,Description,CategoryName,CoverImage,Type,Address,DealOfTheDay,AdvertisementDate,AppUserId,SlugUrl From Product inner join Category on Product.ProductCategory=Category.CategoryID Where ProductID=@productId";
             var parameters = new DynamicParameters();
             parameters.Add("@productId", id);
 
@@ -142,6 +142,18 @@ namespace RealEstate_Dapper_Api.Repositories.ProductRepository
             {
                 var values = await connection.QueryAsync<GetProductDetailByIdDto>(query, parameters);
                 return values.FirstOrDefault();
+            }
+        }
+
+        public async Task<List<GetProductIdByAppUserDto>> GetProductIdByAppUser(int id)
+        {
+            string query = " Select Top(3) ProductID ,Title,CoverImage,City,Price From Product inner join AppUser On Product.AppUserId=AppUser.UserId where AppUserId=@AppUserId Order By ProductID Desc";
+            var parameters = new DynamicParameters();
+            parameters.Add("@AppUserId", id);
+            using (var conncetion = _context.CreateConnection())
+            {
+                var values = await conncetion.QueryAsync<GetProductIdByAppUserDto>(query,parameters);
+                return values.ToList();
             }
         }
 

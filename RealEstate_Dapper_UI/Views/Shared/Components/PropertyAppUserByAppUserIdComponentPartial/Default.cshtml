@@ -1,0 +1,27 @@
+﻿@model List<RealEstate_Dapper_UI.Dtos.ProductDtos.GetProductIdByAppUserDto>
+<div class="sidebar-widget popular-posts">
+    <div class="sidebar-title">
+        <h4>Emlakçıya Ait Diğer İlanlar</h4>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <article class="post">
+        <figure class="post-thumb">
+            <img src="@item.CoverImage" class="radius-image" alt="">
+        </figure>
+        <div class="text">
+            <a href="#blog-single">
+                @item.Title
+            </a>
+            <div class="post-info">@item.City - @item.Price </div>
+        </div>
+    </article>
+
+    }
+    
+
+
+    
+
+</div>

@@ -3,6 +3,7 @@
     public class GetProductByProductIdDto
     {
         public int ProductID { get; set; }
+        public int AppUserId { get; set; }
         public string Title { get; set; }
         public decimal Price { get; set; }
         public string city { get; set; }
@@ -14,6 +15,7 @@
         public string Address { get; set; }
         public bool DealOfTheDay { get; set; }
         public DateTime AdvertisementDate { get; set; }
+        public string SlugUrl { get; set; }
 
     }
 }

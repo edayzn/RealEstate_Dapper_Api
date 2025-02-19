@@ -45,6 +45,8 @@ namespace RealEstate_Dapper_Api.Containers
             services.AddTransient<IAppUserRepository, AppUserRepository>();
             services.AddTransient<IPropertyAmenityRepository, PropertyAmenityRepository>();
             services.AddTransient<ISubFeatureRepository, SubFeatureRepository>();
+            
+
 
         }
     }

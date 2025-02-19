@@ -48,49 +48,8 @@
 
 
         <!-- Popular Post Widget-->
-        <div class="sidebar-widget popular-posts">
-            <div class="sidebar-title">
-                <h4>Emlakçıya Ait Diğer İlanlar</h4>
-            </div>
-
-            <article class="post">
-                <figure class="post-thumb">
-                    <img src="~/starter/assets/images/l1.jpg" class="radius-image" alt="">
-                </figure>
-                <div class="text">
-                    <a href="#blog-single">
-                        Why we are the best in the business
-                    </a>
-                    <div class="post-info">Sep 09, 2020 - 2 comments</div>
-                </div>
-            </article>
-
-            <article class="post">
-                <figure class="post-thumb">
-                    <img src="~/starter/assets/images/l2.jpg" class="radius-image" alt="">
-                </figure>
-                <div class="text">
-                    <a href="#blog-single">
-                        Build your next landing page.
-                    </a>
-                    <div class="post-info">Sep 09, 2020 - 2 comments</div>
-                </div>
-            </article>
-
-            <article class="post">
-                <figure class="post-thumb">
-                    <img src="~/starter/assets/images/l3.jpg" class="radius-image" alt="">
-                </figure>
-                <div class="text">
-                    <a href="#blog-single">
-                        Simply the best. Better than the rest.
-                    </a>
-                    <div class="post-info">Sep 10, 2020 - 2 comments</div>
-                </div>
-            </article>
-
-        </div>
-
+        @await Component.InvokeAsync("PropertyAppUserByAppUserIdComponentPartial", new { id = ViewBag.userId })
+       
     </aside>
 </div>
 
