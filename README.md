@@ -1,4 +1,4 @@
-![Ekran görüntüsü 2025-02-28 004425](https://github.com/user-attachments/assets/d06da2c0-8e4f-4ad5-b17e-a75b9d5c089c)# AspNet Core 8.0 + Api + Dapper
+# AspNet Core 8.0 + Api + Dapper
 ## Proje Amacı
  Gayrimenkul sahibi olmayı hedefleyen kullanıcıların, istedikleri lokasyonlarda gayrimenkul arayışını kolaylaştırmak ve Real Estate Emlak Danışmaları ile etkin bir iletişim kurmalarına ve hayallerindeki gayrimenkule sahip olmalarına olanak sağlar. Oldukça basit bir arayüz ile alıcıların ihtiyaçlarına uygun mülkleri hızla bulmalarını hedeflemektedir. 
 ## Kullanılan Teknolojiler
