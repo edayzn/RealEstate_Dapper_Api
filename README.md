@@ -24,7 +24,7 @@
 
   ![Ekran görüntüsü 2025-02-27 222813](https://github.com/user-attachments/assets/08914ed7-d0cf-4154-a695-a4de13b634a0)
 
-  ![Ekran görüntüsü 2025-02-27 222844](https://github.com/user-attachments/assets/8d24b6a5-58e3-4276-93ff-6ec0c86bd82b)
+  ![Ekran görüntüsü 2025-02-27 222844](https://github.com/user-attachments/assets/9abf351d-3eb8-4e02-8662-4565e1759b30)
 
   ![Ekran görüntüsü 2025-02-27 222857](https://github.com/user-attachments/assets/934a8958-cd36-4872-8ef6-abfe47373925)
 
