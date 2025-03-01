@@ -5,3 +5,15 @@
 - ASP.NET Core 8.0 MVC
 - Web API
 - RESTful API
+- SignalR 
+- MSSQL
+- Dapper ORM (DB First)
+- Trigger
+- JWT (JSON Web Token)
+- Rol Tabanlı Yetkilendirme
+- Swagger
+- Bootstrap
+
+
+  ## Proje Resimleri
+  ![Ekran görüntüsü 2025-03-01 222824](https://github.com/user-attachments/assets/3d73807f-a757-4af5-ad54-9ff7f7099585)
